@@ -1,0 +1,526 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Skills - Lijith Talluru</title>
+  <link rel='stylesheet' href='https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.1.3/css/bootstrap.min.css'>
+  <link rel="stylesheet" href="./style.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+  <link rel="icon" href="https://cdn-icons-png.flaticon.com/512/616/616494.png" type="image/png">
+  <style>
+    body {
+      background-color: #f8f9fa;
+      color: #1a4f1a;
+    }
+
+    .title-section {
+      padding: 120px 0 80px;
+      text-align: center;
+      background: linear-gradient(to bottom, #ffffff, #f8f9fa);
+    }
+
+    .title-section h1 {
+      color: #1a4f1a;
+      font-family: 'Regalia Monarch', serif;
+      font-size: 4rem;
+      margin-bottom: 20px;
+      text-transform: uppercase;
+      letter-spacing: 2px;
+      position: relative;
+      display: inline-block;
+    }
+
+    .title-section h1:after {
+      content: '';
+      position: absolute;
+      bottom: -15px;
+      left: 50%;
+      transform: translateX(-50%);
+      width: 80px;
+      height: 3px;
+      background: #1a4f1a;
+    }
+
+    .title-section p {
+      color: #1a4f1a;
+      font-size: 1.4rem;
+      margin-top: 30px;
+      opacity: 0.8;
+    }
+
+    .skills-section {
+      padding: 60px 0 100px;
+      background-color: #f8f9fa;
+    }
+
+    .skill-category {
+      margin-bottom: 80px;
+      opacity: 0;
+      transform: translateY(20px);
+      animation: fadeInUp 0.6s ease forwards;
+    }
+
+    @keyframes fadeInUp {
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+
+    .skill-category:nth-child(2) {
+      animation-delay: 0.2s;
+    }
+
+    .skill-category:nth-child(3) {
+      animation-delay: 0.4s;
+    }
+
+    .skill-category h2 {
+      color: #1a4f1a;
+      font-family: 'Regalia Monarch', serif;
+      font-size: 2.5rem;
+      margin-bottom: 40px;
+      text-align: center;
+      position: relative;
+      text-transform: uppercase;
+      letter-spacing: 1px;
+    }
+
+    .skill-category h2:after {
+      content: '';
+      display: block;
+      width: 60px;
+      height: 3px;
+      background: #1a4f1a;
+      margin: 15px auto;
+      transition: width 0.3s ease;
+    }
+
+    .skill-category:hover h2:after {
+      width: 100px;
+    }
+
+    .skills-container {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      gap: 40px;
+      padding: 20px;
+    }
+
+    .skill-card {
+      background: #ffffff;
+      border-radius: 20px;
+      padding: 35px;
+      text-align: center;
+      transition: all 0.4s cubic-bezier(0.165, 0.84, 0.44, 1);
+      position: relative;
+      overflow: hidden;
+      border: 1px solid rgba(26, 79, 26, 0.1);
+      box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+    }
+
+    .skill-card:hover {
+      transform: translateY(-10px);
+      box-shadow: 0 15px 30px rgba(26, 79, 26, 0.15);
+      border-color: rgba(26, 79, 26, 0.2);
+    }
+
+    .skill-card i {
+      font-size: 3rem;
+      color: #1a4f1a;
+      margin-bottom: 25px;
+      transition: transform 0.3s ease;
+    }
+
+    .skill-card:hover i {
+      transform: scale(1.1);
+    }
+
+    .skill-card h3 {
+      color: #1a4f1a;
+      font-size: 1.6rem;
+      margin-bottom: 15px;
+      font-weight: 600;
+      letter-spacing: 0.5px;
+    }
+
+    .skill-card p {
+      color: #1a4f1a;
+      font-size: 1rem;
+      line-height: 1.6;
+      margin-bottom: 0;
+      opacity: 0.8;
+    }
+
+    .skill-level {
+      margin-top: 25px;
+      height: 8px;
+      background: rgba(26, 79, 26, 0.1);
+      border-radius: 4px;
+      overflow: hidden;
+    }
+
+    .skill-level-bar {
+      height: 100%;
+      background: linear-gradient(90deg, #1a4f1a, #2d572d);
+      border-radius: 4px;
+      transition: width 1.2s cubic-bezier(0.165, 0.84, 0.44, 1);
+    }
+
+    .skill-details {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: #ffffff;
+      padding: 30px;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      opacity: 0;
+      transform: translateY(100%);
+      transition: all 0.4s cubic-bezier(0.165, 0.84, 0.44, 1);
+      border-radius: 20px;
+    }
+
+    .skill-card:hover .skill-details {
+      opacity: 1;
+      transform: translateY(0);
+    }
+
+    .skill-details h4 {
+      color: #1a4f1a;
+      margin-bottom: 20px;
+      font-size: 1.4rem;
+      font-weight: 600;
+    }
+
+    .skill-details ul {
+      list-style: none;
+      padding: 0;
+      margin: 0;
+      text-align: left;
+      width: 100%;
+    }
+
+    .skill-details li {
+      color: #1a4f1a;
+      margin-bottom: 12px;
+      display: flex;
+      align-items: center;
+      font-size: 1rem;
+      opacity: 0.9;
+    }
+
+    .skill-details li i {
+      font-size: 0.9rem;
+      margin-right: 10px;
+      color: #1a4f1a;
+    }
+
+    .return-home {
+      background: linear-gradient(to top, #ffffff, #f8f9fa);
+      padding: 80px 0;
+      text-align: center;
+    }
+
+    .return-home .project-link-wrap p {
+      font-size: 1.8rem;
+      letter-spacing: 2px;
+      text-transform: uppercase;
+      transition: all 0.3s ease;
+    }
+
+    .return-home .project-link-wrap:hover p {
+      transform: translateY(-3px);
+      opacity: 0.8;
+    }
+
+    @media (max-width: 768px) {
+      .title-section {
+        padding: 80px 0 50px;
+      }
+
+      .title-section h1 {
+        font-size: 2.8rem;
+      }
+
+      .title-section p {
+        font-size: 1.2rem;
+      }
+
+      .skills-container {
+        grid-template-columns: 1fr;
+        gap: 30px;
+      }
+
+      .skill-category h2 {
+        font-size: 2rem;
+      }
+
+      .skill-card {
+        padding: 25px;
+      }
+    }
+  </style>
+</head>
+<body>
+  <!-- Title Section -->
+  <div class="title-section">
+    <div class="container">
+      <div class="row">
+        <div class="col-12">
+          <h1>My Skills</h1>
+          <p>Here's what I bring to the table</p>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Skills Section -->
+  <div class="skills-section">
+    <div class="container">
+      <!-- Frontend Development -->
+      <div class="skill-category">
+        <h2>Frontend Development</h2>
+        <div class="skills-container">
+          <div class="skill-card">
+            <i class="fab fa-html5"></i>
+            <h3>HTML</h3>
+            <p>Semantic markup and modern web standards</p>
+            <div class="skill-level">
+              <div class="skill-level-bar" style="width: 95%"></div>
+            </div>
+            <div class="skill-details">
+              <h4>HTML Expertise</h4>
+              <ul>
+                <li><i class="fas fa-check"></i> Semantic HTML</li>
+                <li><i class="fas fa-check"></i> Accessibility (ARIA)</li>
+                <li><i class="fas fa-check"></i> Forms & Validation</li>
+                <li><i class="fas fa-check"></i> HTML5 APIs</li>
+              </ul>
+            </div>
+          </div>
+
+          <div class="skill-card">
+            <i class="fab fa-css3-alt"></i>
+            <h3>CSS</h3>
+            <p>Responsive design and modern layouts</p>
+            <div class="skill-level">
+              <div class="skill-level-bar" style="width: 90%"></div>
+            </div>
+            <div class="skill-details">
+              <h4>CSS Expertise</h4>
+              <ul>
+                <li><i class="fas fa-check"></i> Flexbox & Grid</li>
+                <li><i class="fas fa-check"></i> Animations & Transitions</li>
+                <li><i class="fas fa-check"></i> CSS Variables</li>
+                <li><i class="fas fa-check"></i> Media Queries</li>
+              </ul>
+            </div>
+          </div>
+
+          <div class="skill-card">
+            <i class="fab fa-js"></i>
+            <h3>JS</h3>
+            <p>Modern ES6+ and interactive features</p>
+            <div class="skill-level">
+              <div class="skill-level-bar" style="width: 85%"></div>
+            </div>
+            <div class="skill-details">
+              <h4>JavaScript Expertise</h4>
+              <ul>
+                <li><i class="fas fa-check"></i> ES6+ Features</li>
+                <li><i class="fas fa-check"></i> DOM Manipulation</li>
+                <li><i class="fas fa-check"></i> Async Programming</li>
+                <li><i class="fas fa-check"></i> Event Handling</li>
+              </ul>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Programming Languages -->
+      <div class="skill-category">
+        <h2>Programming Languages</h2>
+        <div class="skills-container">
+          <div class="skill-card">
+            <i class="fas fa-code"></i>
+            <h3>C</h3>
+            <p>System programming and low-level development</p>
+            <div class="skill-level">
+              <div class="skill-level-bar" style="width: 85%"></div>
+            </div>
+            <div class="skill-details">
+              <h4>C Expertise</h4>
+              <ul>
+                <li><i class="fas fa-check"></i> Memory Management</li>
+                <li><i class="fas fa-check"></i> Pointers & Arrays</li>
+                <li><i class="fas fa-check"></i> Data Structures</li>
+                <li><i class="fas fa-check"></i> System Programming</li>
+              </ul>
+            </div>
+          </div>
+
+          <div class="skill-card">
+            <i class="fas fa-code"></i>
+            <h3>C++</h3>
+            <p>Object-oriented programming and system development</p>
+            <div class="skill-level">
+              <div class="skill-level-bar" style="width: 80%"></div>
+            </div>
+            <div class="skill-details">
+              <h4>C++ Expertise</h4>
+              <ul>
+                <li><i class="fas fa-check"></i> OOP Concepts</li>
+                <li><i class="fas fa-check"></i> STL & Templates</li>
+                <li><i class="fas fa-check"></i> Memory Management</li>
+                <li><i class="fas fa-check"></i> Multi-threading</li>
+              </ul>
+            </div>
+          </div>
+
+          <div class="skill-card">
+            <i class="fas fa-cube"></i>
+            <h3>Solidity</h3>
+            <p>Smart contract development and blockchain</p>
+            <div class="skill-level">
+              <div class="skill-level-bar" style="width: 75%"></div>
+            </div>
+            <div class="skill-details">
+              <h4>Solidity Expertise</h4>
+              <ul>
+                <li><i class="fas fa-check"></i> Smart Contracts</li>
+                <li><i class="fas fa-check"></i> DApp Development</li>
+                <li><i class="fas fa-check"></i> Web3 Integration</li>
+                <li><i class="fas fa-check"></i> Security Best Practices</li>
+              </ul>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Tools & Technologies -->
+      <div class="skill-category">
+        <h2>Tools & Technologies</h2>
+        <div class="skills-container">
+          <div class="skill-card">
+            <i class="fas fa-shield-alt"></i>
+            <h3>Cyber</h3>
+            <p>Security assessment and protection</p>
+            <div class="skill-level">
+              <div class="skill-level-bar" style="width: 80%"></div>
+            </div>
+            <div class="skill-details">
+              <h4>Cybersecurity Expertise</h4>
+              <ul>
+                <li><i class="fas fa-check"></i> Network Security</li>
+                <li><i class="fas fa-check"></i> Penetration Testing</li>
+                <li><i class="fas fa-check"></i> Security Auditing</li>
+                <li><i class="fas fa-check"></i> Vulnerability Assessment</li>
+              </ul>
+            </div>
+          </div>
+
+          <div class="skill-card">
+            <i class="fab fa-git-alt"></i>
+            <h3>Git</h3>
+            <p>Version control and collaboration</p>
+            <div class="skill-level">
+              <div class="skill-level-bar" style="width: 85%"></div>
+            </div>
+            <div class="skill-details">
+              <h4>Git Expertise</h4>
+              <ul>
+                <li><i class="fas fa-check"></i> Branching & Merging</li>
+                <li><i class="fas fa-check"></i> GitHub/GitLab</li>
+                <li><i class="fas fa-check"></i> Pull Requests</li>
+                <li><i class="fas fa-check"></i> Conflict Resolution</li>
+              </ul>
+            </div>
+          </div>
+
+          <div class="skill-card">
+            <i class="fas fa-database"></i>
+            <h3>DBMS</h3>
+            <p>Data storage and management</p>
+            <div class="skill-level">
+              <div class="skill-level-bar" style="width: 70%"></div>
+            </div>
+            <div class="skill-details">
+              <h4>Database Expertise</h4>
+              <ul>
+                <li><i class="fas fa-check"></i> MongoDB</li>
+                <li><i class="fas fa-check"></i> MySQL</li>
+                <li><i class="fas fa-check"></i> Data Modeling</li>
+                <li><i class="fas fa-check"></i> Query Optimization</li>
+              </ul>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Return to Home Button -->
+  <div class="return-home">
+    <div class="container">
+      <div class="row justify-content-center">
+        <div class="col-md-7 text-center">
+          <a href="index.html" class="hover-target">
+            <div class="project-link-wrap">
+              <p>return to home</p>
+            </div>
+          </a>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Scroll back to top -->
+  <div class="scroll-to-top hover-target"></div>
+
+  <!-- Page cursor -->
+  <div class='cursor' id="cursor"></div>
+  <div class='cursor2' id="cursor2"></div>
+  <div class='cursor3' id="cursor3"></div>
+
+  <footer style="width:100%;text-align:center;padding:20px 0 10px 0;font-size:0.95rem;color:#888;background:none;">
+    © 2025 Lijith Talluru. All rights reserved.
+  </footer>
+
+  <script src='https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js'></script>
+  <script src="./script.js"></script>
+  <script>
+    // Animate skill level bars on scroll
+    function animateSkillBars() {
+      const skillBars = document.querySelectorAll('.skill-level-bar');
+      skillBars.forEach(bar => {
+        const width = bar.style.width;
+        bar.style.width = '0';
+        setTimeout(() => {
+          bar.style.width = width;
+        }, 200);
+      });
+    }
+
+    // Run animation when page loads
+    window.addEventListener('load', animateSkillBars);
+
+    // Run animation when element comes into view
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          animateSkillBars();
+        }
+      });
+    });
+
+    document.querySelectorAll('.skill-category').forEach(category => {
+      observer.observe(category);
+    });
+  </script>
+</body>
+</html> 

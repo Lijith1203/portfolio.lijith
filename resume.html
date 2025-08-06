@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Resume - Lijith Talluru</title>
+  <link rel='stylesheet' href='https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.1.3/css/bootstrap.min.css'>
+  <link rel="stylesheet" href="./style.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+  <link rel="icon" href="https://cdn-icons-png.flaticon.com/512/616/616494.png" type="image/png">
+  <style>
+    body {
+      background-color: #f8f9fa;
+      color: #1a4f1a;
+    }
+    .resume-container {
+      max-width: 900px;
+      margin: 40px auto;
+      background: #fff;
+      border-radius: 16px;
+      box-shadow: 0 8px 32px rgba(26,79,26,0.08);
+      padding: 32px 24px;
+    }
+    .resume-title {
+      text-align: center;
+      font-size: 2.5rem;
+      font-family: 'Regalia Monarch', serif;
+      margin-bottom: 24px;
+      color: #1a4f1a;
+    }
+    .resume-actions {
+      text-align: center;
+      margin-bottom: 24px;
+    }
+    .btn-download {
+      background-color: #1a4f1a;
+      color: #fff;
+      border: none;
+      border-radius: 6px;
+      padding: 12px 28px;
+      font-size: 1.1rem;
+      font-weight: 500;
+      transition: background 0.2s;
+      margin-bottom: 16px;
+    }
+    .btn-download:hover {
+      background-color: #153d15;
+      color: #fff;
+    }
+    .resume-viewer {
+      width: 100%;
+      height: 80vh;
+      border: 1px solid #e0e0e0;
+      border-radius: 8px;
+      margin-bottom: 24px;
+      background: #f8f9fa;
+    }
+    @media (max-width: 991px) {
+      .resume-container { padding: 16px 4px; }
+      .resume-viewer { height: 60vh; }
+    }
+    @media (max-width: 600px) {
+      .resume-title { font-size: 1.5rem; }
+      .resume-viewer { height: 40vh; }
+    }
+  </style>
+</head>
+<body>
+  <div class="resume-container">
+    <div class="resume-title">My Resume</div>
+    <div class="resume-actions">
+      <a href="resume.pdf" class="btn btn-download" download>
+        <i class="fas fa-download"></i> Download Resume (PDF)
+      </a>
+    </div>
+    <div>
+      <embed src="resume.pdf" type="application/pdf" class="resume-viewer">
+    </div>
+    <div class="text-center mt-4">
+      <a href="index.html" class="btn btn-link">&larr; Return to Home</a>
+    </div>
+  </div>
+  <footer style="width:100%;text-align:center;padding:20px 0 10px 0;font-size:0.95rem;color:#888;background:none;">
+    © 2025 Lijith Talluru. All rights reserved.
+  </footer>
+</body>
+</html> 
